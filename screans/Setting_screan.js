@@ -1,11 +1,13 @@
 import React from 'react'
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { Api_pokemon } from './Api_pokemon'
+
 
 function Setting_screan() {
   return (
-    <div>
+    <Text>
       <Api_pokemon></Api_pokemon>
-    </div>
+    </Text>
   )
 }
 

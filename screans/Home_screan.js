@@ -6,8 +6,8 @@ function HomeScreen() {
   const navigation = useNavigation();
 
   return (
-    <div>
-      <div>Home</div>
+    <Text>
+      {/* <div>Home</div> */}
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('Stack')}
@@ -21,7 +21,7 @@ function HomeScreen() {
       >
         <Text style={styles.buttonText}>Ordenar</Text>
       </TouchableOpacity>
-    </div>
+    </Text>
   );
 }
 

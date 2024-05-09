@@ -1,8 +1,10 @@
 import React from 'react'
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+
 
 function Boton_Drawer() {
   return (
-    <div>boton Drawer</div>
+    <Text>boton Drawer</Text>
   )
 }
 

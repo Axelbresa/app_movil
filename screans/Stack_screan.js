@@ -1,8 +1,10 @@
 import React from 'react'
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+
 
 function Stack_screan() {
   return (
-    <div>stack_screan</div>
+    <Text>stack_screan</Text>
   )
 }
 
