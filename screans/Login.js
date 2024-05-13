@@ -9,16 +9,24 @@ function Login() {
   const [correo, setCorreo] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-// console.log(usuarios)
-
   const handleLogin = () => {
+
+    const correoValido = correo.includes('@');
     const usuarioEncontrado = usuarios.find(
         user => user.nombre === username  && user.correo === correo && user.contraseña === password
       );
   
       if (usuarioEncontrado) {
-        alert('Usuario logeado');
-        navigation.navigate('Logeado', { username: usuarioEncontrado.nombre });
+          if (password.length<8){
+              alert("La contraseña debe ser igual o mayor a 8 caracteres")
+            } 
+
+            if (!correoValido) {
+                alert("Debe incluir '@' en el correo electrónico");
+            } else {
+            alert('Usuario logeado');
+            navigation.navigate('Logeado', { username: usuarioEncontrado.nombre });
+        }
       } else {
         alert('Usuario o contraseña incorrectos');
       }
