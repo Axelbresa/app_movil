@@ -6,13 +6,14 @@ import { useNavigation } from '@react-navigation/native';
 function Login() {
   const navigation = useNavigation();
   const [username, setUsername] = React.useState('');
+  const [correo, setCorreo] = React.useState('');
   const [password, setPassword] = React.useState('');
 
 // console.log(usuarios)
 
   const handleLogin = () => {
     const usuarioEncontrado = usuarios.find(
-        user => user.nombre === username && user.contraseña === password
+        user => user.nombre === username  && user.correo === correo && user.contraseña === password
       );
   
       if (usuarioEncontrado) {
@@ -32,6 +33,15 @@ function Login() {
         onChangeText={setUsername}
         placeholder="Ingrese su nombre de usuario"
       />
+
+      <Text style={styles.label}>Correo:</Text>
+      <TextInput
+        style={styles.input}
+        value={correo}
+        onChangeText={setCorreo}
+        placeholder="Ingrese su correo"
+      />
+
       <Text style={styles.label}>Contraseña:</Text>
       <TextInput
         style={styles.input}
