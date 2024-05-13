@@ -10,6 +10,8 @@ import Setting_screan from "./screans/Setting_screan";
 import Stack_screan from "./screans/Stack_screan";
 import hamburguesa from "./screans/hamburguesa";
 import Boton_Drawer from "./screans/Drawer";
+import Login from "./screans/Login";
+import logeado from "./screans/logeado";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -30,6 +32,8 @@ function MyStack() {
             <Stack.Screen name="Home_screan" component={Home_screan} />
             <Stack.Screen name="Stack" component={Stack_screan}/>
             <Stack.Screen name="Hamburguesa" component={hamburguesa}/>
+            <Stack.Screen name="Login" component={Login}/>
+            <Stack.Screen name="Logeado" component={logeado}/>
         </Stack.Navigator>
     );
 }

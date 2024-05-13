@@ -1,14 +1,14 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Api_pokemon } from './Api_pokemon';
+
+
 
 function HomeScreen() {
   const navigation = useNavigation();
 
   return (
-    <Text>
-      {/* <div>Home</div> */}
+    <View style={styles.container}>
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('Stack')}
@@ -22,13 +22,23 @@ function HomeScreen() {
       >
         <Text style={styles.buttonText}>Ordenar</Text>
       </TouchableOpacity>
-      <Text>
-      </Text>
-    </Text>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Login')}
+      >
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   button: {
     backgroundColor: 'red',
     padding: 10,
