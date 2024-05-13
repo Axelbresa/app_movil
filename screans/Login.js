@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import {usuarios} from "./lista_usuario"
 import { useNavigation } from '@react-navigation/native';
+import { FontAwesome } from '@expo/vector-icons'; 
 
 function Login() {
   const navigation = useNavigation();
@@ -17,48 +18,59 @@ function Login() {
       );
   
       if (usuarioEncontrado) {
-          if (password.length<8){
-              alert("La contraseña debe ser igual o mayor a 8 caracteres")
-            } 
-
-            if (!correoValido) {
-                alert("Debe incluir '@' en el correo electrónico");
-            } else {
             alert('Usuario logeado');
             navigation.navigate('Logeado', { username: usuarioEncontrado.nombre });
-        }
       } else {
-        alert('Usuario o contraseña incorrectos');
+        if (!correoValido) {
+            alert("Debe incluir '@' en el correo electrónico");
+        } if (password.length<8) {
+            alert('La contraseña debe ser como minimo de 8 caracteres');
+        } if (username=="" || correo=="" || password=="") {
+            alert('No debe estar vacio ningun campo');
+        } 
+
       }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Nombre de usuario:</Text>
-      <TextInput
-        style={styles.input}
-        value={username}
-        onChangeText={setUsername}
-        placeholder="Ingrese su nombre de usuario"
-      />
+    <Text style={styles.title}>Login:</Text>
+    <Text style={styles.label}>Nombre de usuario:</Text>
+      <View style={styles.inputContainer}>
+        <FontAwesome name="user" size={24} color="black" style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          value={username}
+          onChangeText={setUsername}
+          placeholder="Nombre de usuario"
+        />
+      </View>
 
-      <Text style={styles.label}>Correo:</Text>
-      <TextInput
-        style={styles.input}
-        value={correo}
-        onChangeText={setCorreo}
-        placeholder="Ingrese su correo"
-      />
+    <Text style={styles.label}>Correo:</Text>
+      <View style={styles.inputContainer}>
+        <FontAwesome name="envelope" size={24} color="black" style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          value={correo}
+          onChangeText={setCorreo}
+          placeholder="Correo electrónico"
+        />
+      </View>
 
-      <Text style={styles.label}>Contraseña:</Text>
-      <TextInput
-        style={styles.input}
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry={true}
-        placeholder="Ingrese su contraseña"
-      />
-      <Button title="Iniciar sesión" onPress={handleLogin} />
+    <Text style={styles.label}>Password:</Text>
+      <View style={styles.inputContainer}>
+        <FontAwesome name="lock" size={24} color="black" style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry={true}
+          placeholder="Contraseña"
+        />
+      </View>
+      {/* <Button  /> */}
+        <Button style={styles.botones} title="Iniciar sesión" onPress={handleLogin}></Button>
+      <View style={styles.franja}></View>
     </View>
   );
 }
@@ -69,21 +81,43 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    borderWidth: 3,
-    margin:60,
+    backgroundColor: 'purple', // Fondo claro para el contenedor
   },
-  label: {
-    marginBottom: 5,
+  title: {
+    color:"white",
+    fontSize:40,
+    marginBottom:20
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+    backgroundColor: '#f0f0f0', // Fondo claro para los campos de entrada
+    borderRadius: 50, // Bordes redondeados
+  },  
+  franja:{
+    height: "50%",
+    width: "100%",
+    backgroundColor: "white",
+    // position: "absolute",
+    marginTop:2,
+  },
+  icon: {
+    marginHorizontal: 10,
   },
   input: {
-    width: '100%',
+    flex: 1,
     height: 40,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
     paddingHorizontal: 10,
-    marginBottom: 20,
   },
+  label:{
+    color:"white",
+  },
+  botones:{
+    borderRadius: 80, // Bordes redondeados
+    backgroundColor: "red"
+  }
+
 });
 
 export default Login;
