@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import {usuarios} from "./lista_usuario"
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons'; 
+import CustomButton from './custom_button';
 
 function Login() {
   const navigation = useNavigation();
@@ -68,8 +69,8 @@ function Login() {
           placeholder="Contraseña"
         />
       </View>
-      {/* <Button  /> */}
-        <Button style={styles.botones} title="Iniciar sesión" onPress={handleLogin}></Button>
+        {/* <Button style={styles.botones} title="Iniciar sesión" onPress={handleLogin}></Button> */}
+        <CustomButton title="Iniciar sesión" onPress={handleLogin} />
       <View style={styles.franja}></View>
     </View>
   );
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     // position: "absolute",
     marginTop:2,
+    // borderTopEndRadius: 50,
   },
   icon: {
     marginHorizontal: 10,
@@ -113,11 +115,6 @@ const styles = StyleSheet.create({
   label:{
     color:"white",
   },
-  botones:{
-    borderRadius: 80, // Bordes redondeados
-    backgroundColor: "red"
-  }
-
 });
 
 export default Login;
