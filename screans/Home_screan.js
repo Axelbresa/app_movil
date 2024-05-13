@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Api_pokemon } from './Api_pokemon';
 
 function HomeScreen() {
   const navigation = useNavigation();
@@ -21,6 +22,8 @@ function HomeScreen() {
       >
         <Text style={styles.buttonText}>Ordenar</Text>
       </TouchableOpacity>
+      <Text>
+      </Text>
     </Text>
   );
 }

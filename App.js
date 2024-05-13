@@ -2,11 +2,12 @@
 import React from 'react';
 import Navigation from './navigation';
 import { StyleSheet, View, Text } from 'react-native';
+import { Api_pokemon } from './screans/Api_pokemon';
 
 const App = () => {
     return (
         <View style={styles.container}>
-            {/* <Text>hola</Text> */}
+            {/* <Api_pokemon></Api_pokemon> */}
             <Navigation />
         </View>
     );
